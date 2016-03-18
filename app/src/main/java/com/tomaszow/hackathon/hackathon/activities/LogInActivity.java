@@ -7,7 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.LogInCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 import com.tomaszow.hackathon.hackathon.R;
+import com.tomaszow.hackathon.hackathon.fetcher.Constants;
 
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,7 +25,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
         setUI();
     }
 
@@ -35,7 +39,17 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void LogIn() {
-        startHomeActivity();
+        ParseUser.logInInBackground("joestevens", "secret123", new LogInCallback() {
+            public void done(ParseUser user, ParseException e) {
+                if (user != null) {
+                    // Hooray! The user is logged in.
+                    startHomeActivity();
+                } else {
+                    // Signup failed. Look at the ParseException to see what happened.
+                }
+            }
+        });
+
     }
 
     private void startHomeActivity() {
