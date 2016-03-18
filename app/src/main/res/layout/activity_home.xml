@@ -15,27 +15,40 @@
         android:layout_height="500px"
         android:layout_marginTop="60px"
         android:layout_centerHorizontal="true">
-        <Button
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/button"
-            android:layout_alignTop="@+id/progressBar"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/roundedbutton"
-            android:layout_marginBottom="46px"
-            android:layout_marginTop="46px"
-            android:layout_marginLeft="46px"
-            android:layout_marginRight="46px"
-            />
-
+            android:id="@+id/imageView"
+            android:background="@drawable/circlehome"/>
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="500px"
+            android:layout_height="500px"
             android:id="@+id/progressBar"
             android:layout_alignParentTop="true"
-            android:background="@drawable/roundedprogress"
-            />
+            android:indeterminateDrawable="@drawable/roundedprogress"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0"
+            android:id="@+id/numberOfFriends"
+            android:layout_gravity="center"
+            android:fontFamily=""/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="100px"/>
+
+
     </FrameLayout>
 
 
