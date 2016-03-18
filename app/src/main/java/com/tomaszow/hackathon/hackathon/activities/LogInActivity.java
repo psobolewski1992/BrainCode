@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -21,6 +22,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private Button mLogInButton;
     private Button mCrateAccountButton;
 
+    private String mEmail, mPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +33,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
     private void setUI() {
         mEmailEditText = (EditText) findViewById(R.id.activityLogIn_EditText_Email);
-        mPasswordEditText = (EditText) findViewById(R.id.activityRegister_EditText_Password);
+        mPasswordEditText = (EditText) findViewById(R.id.activityLogIn_EditText_Password);
         mLogInButton = (Button) findViewById(R.id.activityLogIn_Button_LogIn);
         mCrateAccountButton = (Button) findViewById(R.id.activityLogIn_Button_Register);
 
@@ -39,17 +42,24 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void LogIn() {
-        ParseUser.logInInBackground("joestevens", "secret123", new LogInCallback() {
+        checkForm();
+        ParseUser.logInInBackground(mEmail, mPassword, new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
                     // Hooray! The user is logged in.
                     startHomeActivity();
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
+                    Toast.makeText(getApplicationContext(), "Check credentials", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
+    }
+
+    private void checkForm() {
+        mEmail = mEmailEditText.getText().toString();
+        mPassword = mPasswordEditText.getText().toString();
     }
 
     private void startHomeActivity() {
