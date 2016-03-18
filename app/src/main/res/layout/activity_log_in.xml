@@ -13,11 +13,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="joestevens"
         android:id="@+id/activityLogIn_EditText_Email"
          />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="secret123"
         android:id="@+id/activityLogIn_EditText_Password"
         />
 
