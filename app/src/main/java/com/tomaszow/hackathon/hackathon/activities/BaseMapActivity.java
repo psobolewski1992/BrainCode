@@ -32,17 +32,32 @@ public abstract class BaseMapActivity extends AppCompatActivity {
     protected LatLng mCenterLocation = new LatLng( 52.22, 21.10 );
 
     protected GoogleMap mGoogleMap;
-
+    ListView lv;
+    private double e=1;
+    private double latitude;
+    private double longitude;
+    private ArrayList<Measurement> nearbyPeople = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getMapLayoutId());
         initMapIfNecessary();
+        lv = (ListView) findViewById(R.id.userList);
+        Bundle b = getIntent().getExtras();
+        latitude = b.getDouble("latitude");
+        longitude = b.getDouble("longitude");
+        lv.setAdapter(new customAdaper(this, getListOfObjectFromQuery(nearbyPeople), getListOfObjectFromQuery(nearbyPeople)));
 
 
     }
-
+    private ArrayList<String> getListOfObjectFromQuery(ArrayList<Measurement> nearbyPeople){
+        ArrayList<String> objects = new ArrayList<>();
+        for(Measurement human : nearbyPeople){
+            objects.add(human.getUserID());
+        }
+        return objects;
+    }
 
 
 
@@ -71,7 +86,26 @@ public abstract class BaseMapActivity extends AppCompatActivity {
 
         mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), null);
     }
-
+    private void executeQuery() {
+        double e;
+        ParseQuery<Measurement> query = ParseQuery.getQuery(Measurement.class);
+        query.whereGreaterThanOrEqualTo("latitude", latitude - 1);
+        query.whereLessThanOrEqualTo("latitude", latitude + 1);
+        query.whereLessThanOrEqualTo("longitude", longitude + 1);
+        query.whereGreaterThanOrEqualTo("longitude", longitude - 1);
+        query.findInBackground(new FindCallback<Measurement>() {
+            public void done(List<Measurement> itemList, ParseException e) {
+                if (e == null) {
+                    // Access the array of results here
+                    String firstItemId = itemList.get(0).getObjectId();
+                    nearbyPeople.addAll(itemList);
+                    //Toast.makeText(HomeActivity.this, firstItemId, Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d("item", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
     protected int getMapLayoutId() {
         return R.layout.activity_map_tracker;
     }

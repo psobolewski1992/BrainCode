@@ -77,30 +77,6 @@ public class ClusterMarkerActivity extends BaseMapActivity {
             clusterManager.addItem( new ClusterMarkerLocation( new LatLng( mCenterLocation.latitude + lat, mCenterLocation.longitude + lng ) ) );
         }
     }
-    private ArrayList<String> getListOfObjectFromQuery(ArrayList<Measurement> nearbyPeople){
-        ArrayList<String> objects = new ArrayList<>();
-        for(Measurement human : nearbyPeople){
-            objects.add(human.getUserID());
-        }
-        return objects;
-    }
-    private void executeQuery() {
-        double e;
-        ParseQuery<Measurement> query = ParseQuery.getQuery(Measurement.class);
-        query.whereGreaterThanOrEqualTo("latitude", latitude-1);
-        query.whereLessThanOrEqualTo("latitude", latitude+1);
-        query.whereLessThanOrEqualTo("longitude", longitude+1);
-        query.whereGreaterThanOrEqualTo("longitude", longitude-1);
-        query.findInBackground(new FindCallback<Measurement>() {
-            public void done(List<Measurement> itemList, ParseException e) {
-                if (e == null) {
-                    // Access the array of results here
-                    String firstItemId = itemList.get(0).getObjectId();
-                    nearbyPeople.addAll(itemList);
-                    //Toast.makeText(HomeActivity.this, firstItemId, Toast.LENGTH_SHORT).show();
-                } else {
-                    Log.d("item", "Error: " + e.getMessage());
-                }
-            }
-        });
-}}
+
+
+}
