@@ -4,13 +4,20 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.tomaszow.hackathon.hackathon.R;
 import com.tomaszow.hackathon.hackathon.model.Measurement;
 import com.tomaszow.hackathon.hackathon.services.GPSTracker;
+
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String ID = "Id";
@@ -32,6 +39,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mProgress = (ProgressBar) findViewById(R.id.progressBar);
         mProgress.setOnClickListener(this);
         getLocation();
+        executeQuery();
 
     }
 
@@ -69,6 +77,26 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void openMapTrackerActivity() {
         Intent mapTrackerIntent = new Intent(getApplicationContext(), ClusterMarkerActivity.class);
         startActivity(mapTrackerIntent);
+    }
+
+    private void executeQuery() {
+        ParseQuery<Measurement> query = ParseQuery.getQuery(Measurement.class);
+// Define our query conditions
+        //query.whereEqualTo("userID", ParseUser.getCurrentUser());
+// Execute the find asynchronously
+        query.whereGreaterThanOrEqualTo("latitude", 52);
+        query.findInBackground(new FindCallback<Measurement>() {
+            public void done(List<Measurement> itemList, ParseException e) {
+                if (e == null) {
+                    // Access the array of results here
+                    String firstItemId = itemList.get(0).getObjectId();
+                    //Toast.makeText(HomeActivity.this, firstItemId, Toast.LENGTH_SHORT).show();
+                    Log.d("TAG", firstItemId);
+                } else {
+                    Log.d("item", "Error: " + e.getMessage());
+                }
+            }
+        });
     }
 
     @Override
