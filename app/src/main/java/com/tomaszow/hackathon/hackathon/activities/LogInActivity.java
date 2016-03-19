@@ -3,6 +3,7 @@ package com.tomaszow.hackathon.hackathon.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
                     // Hooray! The user is logged in.
+                    Log.d("TAG", user.getObjectId().toString());
+
                     startHomeActivity();
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
@@ -78,6 +81,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         switch (id) {
             case R.id.activityLogIn_Button_LogIn:
                 LogIn();
+                //startHomeActivity();
+                Log.d("TAG", "DUPA");
                 break;
             case R.id.activityLogIn_Button_Register:
                 Register();

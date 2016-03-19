@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mLastName = mUserLastNameEditText.getText().toString();
         mPassword = mPasswordEditText.getText().toString();
         mEmail = mEmailEditText.getText().toString();
-        mPhone = mPasswordEditText.getText().toString();
+        mPhone = mPhoneEditText.getText().toString();
     }
 
     private void LogIn() {

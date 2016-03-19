@@ -13,31 +13,37 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="username"
         android:id="@+id/activityRegister_EditText_UserName"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="firstName"
         android:id="@+id/activityRegister_EditText_FirstName"
          />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="lastName"
         android:id="@+id/activityRegister_EditText_LastName"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="email"
         android:id="@+id/activityRegister_EditText_Email"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="password"
         android:id="@+id/activityRegister_EditText_Password"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="phone"
         android:id="@+id/activityRegister_EditText_Phone"
         />
     <Button

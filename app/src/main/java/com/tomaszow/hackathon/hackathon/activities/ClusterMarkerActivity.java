@@ -19,6 +19,7 @@ public class ClusterMarkerActivity extends BaseMapActivity {
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
+
     @Override
     protected void initMapIfNecessary() {
         super.initMapIfNecessary();
