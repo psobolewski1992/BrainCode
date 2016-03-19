@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="40"
+        android:background="@color/bg"
         android:gravity="center_vertical|center_horizontal">
 
         <FrameLayout
@@ -49,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="50"
-        android:background="#272524">
+        android:background="@color/darkbg">
 
         <LinearLayout
             android:orientation="vertical"
@@ -67,23 +68,12 @@
                 >
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    style="@style/HomeActivityLabel"
                     android:text="DYSTANS [KM]"
-                    android:textSize="12sp"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/wallet_highlighted_text_holo_light"
                     android:id="@+id/textView2" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="58"
-                    android:textSize="48sp"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    style="@style/HomeActivityValue"
                     android:id="@+id/textView3" />
             </LinearLayout>
 
@@ -96,23 +86,12 @@
                 android:layout_margin="20px"
                 >
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Dystans [KM]"
-                    android:textSize="15sp"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    style="@style/HomeActivityLabel"
+                    android:text="DYSTANS [KM]"
                     android:id="@+id/textView4" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="58"
-                    android:textSize="30sp"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    style="@style/HomeActivityValue"
                     android:id="@+id/textView5" />
             </LinearLayout>
         </LinearLayout>
@@ -140,23 +119,12 @@
                     >
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Dystans [KM]"
-                        android:textSize="15sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityLabel"
+                        android:text="DYSTANS [KM]"
                         android:id="@+id/textView55" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="58"
-                        android:textSize="30sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityValue"
                         android:id="@+id/textView66" />
                 </LinearLayout>
 
@@ -169,23 +137,12 @@
                     android:layout_margin="20px"
                     >
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Dystans [KM]"
-                        android:textSize="15sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityLabel"
+                        android:text="DYSTANS [KM]"
                         android:id="@+id/textView77" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="58"
-                        android:textSize="30sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityValue"
                         android:id="@+id/textView88" />
                 </LinearLayout>
             </LinearLayout>
@@ -213,23 +170,12 @@
                     >
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Dystans [KM]"
-                        android:textSize="15sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityLabel"
+                        android:text="DYSTANS [KM]"
                         android:id="@+id/textView999" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="58"
-                        android:textSize="30sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityValue"
                         android:id="@+id/textView99" />
                 </LinearLayout>
 
@@ -242,23 +188,12 @@
                     android:layout_margin="20px"
                     >
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Dystans [KM]"
-                        android:textSize="15sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityLabel"
+                        android:text="DYSTANS [KM]"
                         android:id="@+id/textView123" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="58"
-                        android:textSize="30sp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        style="@style/HomeActivityValue"
                         android:id="@+id/textView234" />
                 </LinearLayout>
             </LinearLayout>

@@ -31,17 +31,17 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCdIhtk420GY9j8yiUtvzYm1LC3yVB-WV8" />
-        <activity android:name=".activities.ClusterMarkerActivity" />
-        <activity android:name=".activities.HomeActivity" />
-        <activity android:name=".activities.LogInActivity">
+        <activity android:name=".activities.ClusterMarkerActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.LogInActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MapTrackerActivity"></activity>
+        <activity android:name=".activities.RegisterActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activities.MapTrackerActivity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package com.tomaszow.hackathon.hackathon.application;
 
 import android.app.Application;
+import android.graphics.Typeface;
+
 import com.parse.Parse;
 import com.tomaszow.hackathon.hackathon.fetcher.Constants;
 
