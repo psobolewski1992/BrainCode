@@ -27,7 +27,10 @@ dependencies {
     compile 'com.android.support:design:23.2.1'
 
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
-    compile 'com.squareup.okhttp:okhttp:2.3.0'
     compile 'com.parse:parse-android:1.13.0'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.google.maps.android:android-maps-utils:0.4.1'
+
+
 
 }

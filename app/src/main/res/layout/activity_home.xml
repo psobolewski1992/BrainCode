@@ -1,106 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".activities.HomeActivity"
     android:background="#2E2B2A">
-
-    <FrameLayout
-        android:layout_width="500px"
-        android:layout_height="500px"
-        android:layout_marginTop="60px"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/frameLayout">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView"
-            android:background="@drawable/circlehome"/>
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/progressBar"
-            android:layout_alignParentTop="true"
-            android:indeterminateDrawable="@drawable/roundedprogress"/>
-        <ImageView
-            android:layout_width="440px"
-            android:layout_height="440px"
-            android:id="@+id/imageView1"
-            android:layout_gravity="center"
-            android:background="@drawable/circlehome"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/button"
-            android:layout_alignTop="@+id/progressBar"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/roundedbutton"
-            android:layout_marginBottom="46px"
-            android:layout_marginTop="46px"
-            android:layout_marginLeft="46px"
-            android:layout_marginRight="46px"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="lol"
-            android:textSize="36sp"
-            android:textColor="#ffffff"
-            android:id="@+id/numberOfFriends"
-            android:layout_gravity="center"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=""
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal|top"
-            android:layout_marginTop="100px"/>
-
-
-    </FrameLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/frameLayout"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp"
-        android:weightSum="1"
+        android:layout_weight="40"
+        android:gravity="center_vertical|center_horizontal">
+
+        <FrameLayout
+            android:layout_width="500px"
+            android:layout_height="500px"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView"
+                android:background="@drawable/circlehome"/>
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="500px"
+                android:layout_height="500px"
+                android:id="@+id/progressBar"
+                android:indeterminateDrawable="@drawable/roundedprogress"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:id="@+id/numberOfFriends"
+                android:layout_gravity="center"
+                />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="50"
         android:background="#272524">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="1"
             android:layout_weight="0.33">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView3"
+                android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="0.5"
-                android:margin="20px"
-                android:background="#1f1d1e"/>
+                android:layout_margin="20px"
+                >
 
-            <ImageView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="DYSTANS [KM]"
+                    android:textSize="12sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    android:id="@+id/textView2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="58"
+                    android:textSize="48sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    android:id="@+id/textView3" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView2"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
                 android:layout_weight="0.5"
-                android:margin="20px"
-                android:background="#1f1d1e"/>
+                android:layout_margin="20px"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Dystans [KM]"
+                    android:textSize="15sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    android:id="@+id/textView4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="58"
+                    android:textSize="30sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/wallet_highlighted_text_holo_light"
+                    android:id="@+id/textView5" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -110,47 +124,146 @@
             android:weightSum="1"
             android:layout_weight="0.33"
             >
-            <ImageView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView4"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0.5"
-                android:margin="20px"
-                android:background="#1f1d1e"/>
+                android:layout_weight="0.33">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView5"
-                android:layout_weight="0.5"
-                android:margin="20px"
-                android:background="#1f1d1e"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.5"
+                    android:layout_margin="20px"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Dystans [KM]"
+                        android:textSize="15sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView55" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="58"
+                        android:textSize="30sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView66" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_weight="0.5"
+                    android:layout_margin="20px"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Dystans [KM]"
+                        android:textSize="15sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView77" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="58"
+                        android:textSize="30sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView88" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:layout_weight="0.33">
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/imageView6"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.5"
-            android:margin="20px"
-            android:background="#1f1d1e"/>
+            android:weightSum="1"
+            android:layout_weight="0.33">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView7"
-            android:layout_weight="0.5"
-            android:margin="20px"
-            android:background="#1f1d1e"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.5"
+                    android:layout_margin="20px"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Dystans [KM]"
+                        android:textSize="15sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView999" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="58"
+                        android:textSize="30sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView99" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_weight="0.5"
+                    android:layout_margin="20px"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Dystans [KM]"
+                        android:textSize="15sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView123" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="58"
+                        android:textSize="30sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wallet_highlighted_text_holo_light"
+                        android:id="@+id/textView234" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-    </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
