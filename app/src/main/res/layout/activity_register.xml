@@ -8,47 +8,76 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
+    android:background="@color/bg"
     tools:context="com.tomaszow.hackathon.hackathon.activities.RegisterActivity">
 
-    <EditText
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="username"
-        android:id="@+id/activityRegister_EditText_UserName"
-        />
+        android:weightSum="10">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4">
+
+            <EditText
+                style="@style/EditTextLogin"
+                android:hint="username"
+                android:id="@+id/activityRegister_EditText_UserName"
+                android:layout_marginRight="20dp"
+                />
+
+            <EditText
+                style="@style/EditTextLogin"
+                android:hint="firstName"
+                android:layout_marginRight="20dp"
+                android:id="@+id/activityRegister_EditText_FirstName"
+                 />
+
+            <EditText
+                style="@style/EditTextLogin"
+                android:hint="lastName"
+                android:layout_marginRight="20dp"
+                android:id="@+id/activityRegister_EditText_LastName"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:id="@+id/activityRegister_ImageView_Avatar" />
+    </LinearLayout>
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="firstName"
-        android:id="@+id/activityRegister_EditText_FirstName"
-         />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="lastName"
-        android:id="@+id/activityRegister_EditText_LastName"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/EditTextLogin"
         android:hint="email"
         android:id="@+id/activityRegister_EditText_Email"
         />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/EditTextLogin"
         android:hint="password"
         android:id="@+id/activityRegister_EditText_Password"
         />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/EditTextLogin"
         android:hint="phone"
         android:id="@+id/activityRegister_EditText_Phone"
         />
-    <Button
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_account_button"
-        android:id="@+id/activityRegister_Button_CreateAcctoun"/>
+        android:layout_height="match_parent">
+
+        <Button
+            style="@style/ButtonLogInActivity"
+            android:text="@string/create_account_button"
+            android:id="@+id/activityRegister_Button_CreateAcctoun"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
 </LinearLayout>

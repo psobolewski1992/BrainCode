@@ -1,11 +1,15 @@
 package com.tomaszow.hackathon.hackathon.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -13,6 +17,9 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 import com.tomaszow.hackathon.hackathon.R;
 import com.tomaszow.hackathon.hackathon.fetcher.Constants;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +31,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText mPhoneEditText;
     private Button mCreateAccountButton;
     private String mUsername, mFirstName, mLastName, mEmail, mPassword, mPhone;
+
+    public static final int SELECT_PHOTO  = 100;
+    private ImageView mAvatarImageView;
 
 
     @Override
@@ -42,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mPhoneEditText = (EditText) findViewById(R.id.activityRegister_EditText_Phone);
         mCreateAccountButton = (Button) findViewById(R.id.activityRegister_Button_CreateAcctoun);
         mCreateAccountButton.setOnClickListener(this);
+        mAvatarImageView = (ImageView) findViewById(R.id.activityRegister_ImageView_Avatar);
+        mAvatarImageView.setOnClickListener(this);
     }
 
     private void createNewAccount() {
@@ -88,6 +100,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         startActivity(homeIntent);
     }
 
+    private void lunchPhotoPickerIntet() {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, SELECT_PHOTO);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+
+        switch(requestCode) {
+            case SELECT_PHOTO:
+                if(resultCode == RESULT_OK){
+                    try {
+                        final Uri imageUri = imageReturnedIntent.getData();
+                        final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                        mAvatarImageView.setImageBitmap(selectedImage);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -95,6 +132,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch (id) {
             case R.id.activityRegister_Button_CreateAcctoun:
                 createNewAccount();
+                break;
+            case R.id.activityRegister_ImageView_Avatar:
+                lunchPhotoPickerIntet();
                 break;
         }
     }
