@@ -100,7 +100,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     String firstItemId = itemList.get(0).getObjectId();
                     mProgressStatus=itemList.size();
                     nearbyPeople.addAll(itemList);
-                    mProgress.setVisibility(View.INVISIBLE);
+                   // mProgress.setVisibility(View.INVISIBLE);
                     //Toast.makeText(HomeActivity.this, firstItemId, Toast.LENGTH_SHORT).show();
                    } else {
                     Log.d("item", "Error: " + e.getMessage());

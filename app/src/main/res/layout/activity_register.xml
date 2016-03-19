@@ -28,6 +28,7 @@
                 android:hint="username"
                 android:id="@+id/activityRegister_EditText_UserName"
                 android:layout_marginRight="20dp"
+                android:background="@drawable/edittextunderline"
                 />
 
             <EditText
@@ -49,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:src="@drawable/av"
             android:id="@+id/activityRegister_ImageView_Avatar" />
     </LinearLayout>
 

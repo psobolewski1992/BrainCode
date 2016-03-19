@@ -27,11 +27,16 @@ public class customAdaper extends BaseAdapter {
 
     public customAdaper(BaseMapActivity mainActivity, ArrayList<String> prgmNameList, ArrayList<String> prgmActivityList) {
         // TODO Auto-generated constructor stub
-        prgmNameList.toArray(result);
-        context = mainActivity;
-        prgmActivityList.toArray(activityId);
-        inflater = (LayoutInflater) context.
-                getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if ( prgmNameList.size() == 0 || prgmActivityList.size() == 0) {
+
+        } else {
+            prgmNameList.toArray(result);
+            context = mainActivity;
+            prgmActivityList.toArray(activityId);
+            inflater = (LayoutInflater) context.
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
     }
 
     @Override

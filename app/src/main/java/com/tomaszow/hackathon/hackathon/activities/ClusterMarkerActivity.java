@@ -31,22 +31,24 @@ public class ClusterMarkerActivity extends BaseMapActivity {
     private double latitude;
     private double longitude;
     private ArrayList<Measurement> nearbyPeople = new ArrayList<>();
-    @Override
+   /*s @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getMapLayoutId());
-        initMapIfNecessary();
         lv = (ListView) findViewById(R.id.userList);
-        Intent intent = getIntent();
         Bundle b = getIntent().getExtras();
         latitude = b.getDouble("latitude");
         longitude = b.getDouble("longitude");
         lv.setAdapter(new customAdaper(this, getListOfObjectFromQuery(nearbyPeople), getListOfObjectFromQuery(nearbyPeople)));
-    }
+    }*/
         @Override
     protected void initMapSettings() {
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
+            //lv = (ListView) findViewById(R.id.userList);
+            //Bundle b = getIntent().getExtras();
+            //latitude = b.getDouble("latitude");
+            //longitude = b.getDouble("longitude");
+            //lv.setAdapter(new customAdaper(this, getListOfObjectFromQuery(nearbyPeople), getListOfObjectFromQuery(nearbyPeople)));
     }
 
 

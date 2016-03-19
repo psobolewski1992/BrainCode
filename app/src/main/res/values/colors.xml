@@ -6,6 +6,6 @@
     <color name="white">#fff</color>
     <color name="darkBorder">#0d0d0d</color>
     <color name="darkbg">#21201F</color>
-    <color name="bg">#272625</color>
-    <color name="orange">#ff6100</color>
+    <color name="bg">#201f1f</color>
+    <color name="orange">#ff6000</color>
 </resources>
