@@ -13,6 +13,8 @@ import com.tomaszow.hackathon.hackathon.activities.BaseMapActivity;
 import com.tomaszow.hackathon.hackathon.activities.ClusterMarkerActivity;
 import com.tomaszow.hackathon.hackathon.activities.MapTrackerActivity;
 
+import java.util.ArrayList;
+
 /**
  * Created by Katarzyna on 2016-03-19.
  */
@@ -23,11 +25,11 @@ public class customAdaper extends BaseAdapter {
     private String[] activityId;
     private static LayoutInflater inflater = null;
 
-    public customAdaper(BaseMapActivity mainActivity, String[] prgmNameList, String[] prgmActivityList) {
+    public customAdaper(BaseMapActivity mainActivity, ArrayList<String> prgmNameList, ArrayList<String> prgmActivityList) {
         // TODO Auto-generated constructor stub
-        result = prgmNameList;
+        prgmNameList.toArray(result);
         context = mainActivity;
-        activityId = prgmActivityList;
+        prgmActivityList.toArray(activityId);
         inflater = (LayoutInflater) context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }

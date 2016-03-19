@@ -17,6 +17,7 @@ import com.tomaszow.hackathon.hackathon.R;
 import com.tomaszow.hackathon.hackathon.model.Measurement;
 import com.tomaszow.hackathon.hackathon.services.GPSTracker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,7 +27,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressBar mProgress;
     private int mProgressStatus = 0;
     GPSTracker mGPS;
-
+    private double latitude;
+    private double longitude;
+    private ArrayList<Measurement> nearbyPeople = new ArrayList<>();
     //private ProgressBar mProgressBar;
 
     private Handler mHandler = new Handler();
@@ -54,8 +57,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         // check if GPS enabled
         if (mGPS.canGetLocation()) {
 
-            double latitude = mGPS.getLatitude();
-            double longitude = mGPS.getLongitude();
+           latitude = mGPS.getLatitude();
+           longitude = mGPS.getLongitude();
             sendCordsToServer(latitude, longitude);
             // \n is for new line
             Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
@@ -76,23 +79,27 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void openMapTrackerActivity() {
         Intent mapTrackerIntent = new Intent(getApplicationContext(), ClusterMarkerActivity.class);
+        mapTrackerIntent.putExtra("nearbyPeople", nearbyPeople);
         startActivity(mapTrackerIntent);
     }
 
     private void executeQuery() {
+        double e;
         ParseQuery<Measurement> query = ParseQuery.getQuery(Measurement.class);
-// Define our query conditions
-        //query.whereEqualTo("userID", ParseUser.getCurrentUser());
-// Execute the find asynchronously
-        query.whereGreaterThanOrEqualTo("latitude", 52);
+        query.whereGreaterThanOrEqualTo("latitude", latitude);
+        query.whereLessThanOrEqualTo("latitude", latitude);
+        query.whereLessThanOrEqualTo("longitude", longitude);
+        query.whereGreaterThanOrEqualTo("longitude", longitude);
         query.findInBackground(new FindCallback<Measurement>() {
             public void done(List<Measurement> itemList, ParseException e) {
                 if (e == null) {
                     // Access the array of results here
                     String firstItemId = itemList.get(0).getObjectId();
+                    mProgressStatus=itemList.size();
+                    nearbyPeople.addAll(itemList);
+                    mProgress.setVisibility(View.INVISIBLE);
                     //Toast.makeText(HomeActivity.this, firstItemId, Toast.LENGTH_SHORT).show();
-                    Log.d("TAG", firstItemId);
-                } else {
+                   } else {
                     Log.d("item", "Error: " + e.getMessage());
                 }
             }

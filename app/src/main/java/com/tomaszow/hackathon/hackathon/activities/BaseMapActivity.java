@@ -12,6 +12,9 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.tomaszow.hackathon.hackathon.R;
 import com.tomaszow.hackathon.hackathon.adapter.customAdaper;
+import com.tomaszow.hackathon.hackathon.model.Measurement;
+
+import java.util.ArrayList;
 
 
 /**
@@ -20,10 +23,8 @@ import com.tomaszow.hackathon.hackathon.adapter.customAdaper;
 public abstract class BaseMapActivity extends AppCompatActivity {
 
     protected LatLng mCenterLocation = new LatLng( 52.22, 21.10 );
-
+    private ArrayList<Measurement> nearbyPeople = new ArrayList<>();
     protected GoogleMap mGoogleMap;
-    public static String [] prgmNameList={"Owsian","Sobol","Mateusz"};
-    public static String [] prgmActivityList={"Pierdzi","Niewiem","Brodacz"};
     ListView lv;
 
 
@@ -33,8 +34,20 @@ public abstract class BaseMapActivity extends AppCompatActivity {
         setContentView(getMapLayoutId());
         initMapIfNecessary();
         lv = (ListView) findViewById(R.id.userList);
-        lv.setAdapter(new customAdaper(this, prgmNameList, prgmActivityList));
+        nearbyPeople =  (ArrayList<Measurement>)getIntent().getSerializableExtra("nearbyPeople");
+
+        lv.setAdapter(new customAdaper(this, getListOfObjectFromQuery(nearbyPeople), getListOfObjectFromQuery(nearbyPeople)));
+
     }
+
+    private ArrayList<String> getListOfObjectFromQuery(ArrayList<Measurement> nearbyPeople){
+        ArrayList<String> objects = new ArrayList<>();
+        for(Measurement human : nearbyPeople){
+            objects.add(human.getUserID());
+        }
+        return objects;
+    }
+
 
     @Override
     protected void onResume() {
