@@ -2,20 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:weightSum="1">
 
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="466dp">
 
         <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            >
+    </fragment>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:id="@+id/listView"
+        android:layout_weight="0.5"
+        />
 </LinearLayout>
