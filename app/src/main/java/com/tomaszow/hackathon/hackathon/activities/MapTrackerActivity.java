@@ -9,16 +9,13 @@ import android.widget.ListView;
 
 
 public class MapTrackerActivity extends Activity {
-    public static String [] prgmNameList={"Owsian","Sobol","Mateusz"};
-    public static String [] prgmActivityList={"Pierdzi","Niewiem","Brodacz"};
-    ListView lv;
+
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_tracker);
-    lv = (ListView) findViewById(R.id.userList);
-    lv.setAdapter(new customAdaper(this, prgmNameList, prgmActivityList));
+
     }
 
 }

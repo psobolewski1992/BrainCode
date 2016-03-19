@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tomaszow.hackathon.hackathon.R;
+import com.tomaszow.hackathon.hackathon.activities.BaseMapActivity;
 import com.tomaszow.hackathon.hackathon.activities.ClusterMarkerActivity;
 import com.tomaszow.hackathon.hackathon.activities.MapTrackerActivity;
 
@@ -22,7 +23,7 @@ public class customAdaper extends BaseAdapter {
     private String[] activityId;
     private static LayoutInflater inflater = null;
 
-    public customAdaper(MapTrackerActivity mainActivity, String[] prgmNameList, String[] prgmActivityList) {
+    public customAdaper(BaseMapActivity mainActivity, String[] prgmNameList, String[] prgmActivityList) {
         // TODO Auto-generated constructor stub
         result = prgmNameList;
         context = mainActivity;

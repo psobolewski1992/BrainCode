@@ -3,6 +3,7 @@ package com.tomaszow.hackathon.hackathon.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,6 +11,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.tomaszow.hackathon.hackathon.R;
+import com.tomaszow.hackathon.hackathon.adapter.customAdaper;
 
 
 /**
@@ -20,7 +22,9 @@ public abstract class BaseMapActivity extends AppCompatActivity {
     protected LatLng mCenterLocation = new LatLng( 52.22, 21.10 );
 
     protected GoogleMap mGoogleMap;
-
+    public static String [] prgmNameList={"Owsian","Sobol","Mateusz"};
+    public static String [] prgmActivityList={"Pierdzi","Niewiem","Brodacz"};
+    ListView lv;
 
 
     @Override
@@ -28,7 +32,8 @@ public abstract class BaseMapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getMapLayoutId());
         initMapIfNecessary();
-
+        lv = (ListView) findViewById(R.id.userList);
+        lv.setAdapter(new customAdaper(this, prgmNameList, prgmActivityList));
     }
 
     @Override
