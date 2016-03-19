@@ -4,7 +4,7 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"/>
+        android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="com.example.googlemaps.permission.MAPS_RECEIVE" />
 
     <permission
@@ -31,6 +30,7 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCdIhtk420GY9j8yiUtvzYm1LC3yVB-WV8" />
+
         <activity android:name=".activities.ClusterMarkerActivity" />
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.LogInActivity">
@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MapTrackerActivity"></activity>
+        <activity android:name=".activities.MapTrackerActivity" />
     </application>
 
 </manifest>
