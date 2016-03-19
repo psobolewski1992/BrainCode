@@ -79,7 +79,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void openMapTrackerActivity() {
         Intent mapTrackerIntent = new Intent(getApplicationContext(), ClusterMarkerActivity.class);
-        mapTrackerIntent.putExtra("nearbyPeople", nearbyPeople);
+        Bundle b = new Bundle();
+        b.putDouble("latitude", latitude);
+        b.putDouble("longitude", longitude);
+        mapTrackerIntent.putExtras(b);
         startActivity(mapTrackerIntent);
     }
 

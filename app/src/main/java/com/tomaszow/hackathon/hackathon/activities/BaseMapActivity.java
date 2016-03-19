@@ -1,7 +1,10 @@
 package com.tomaszow.hackathon.hackathon.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -10,11 +13,15 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.tomaszow.hackathon.hackathon.R;
 import com.tomaszow.hackathon.hackathon.adapter.customAdaper;
 import com.tomaszow.hackathon.hackathon.model.Measurement;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -23,9 +30,8 @@ import java.util.ArrayList;
 public abstract class BaseMapActivity extends AppCompatActivity {
 
     protected LatLng mCenterLocation = new LatLng( 52.22, 21.10 );
-    private ArrayList<Measurement> nearbyPeople = new ArrayList<>();
+
     protected GoogleMap mGoogleMap;
-    ListView lv;
 
 
     @Override
@@ -33,20 +39,11 @@ public abstract class BaseMapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getMapLayoutId());
         initMapIfNecessary();
-        lv = (ListView) findViewById(R.id.userList);
-        nearbyPeople =  (ArrayList<Measurement>)getIntent().getSerializableExtra("nearbyPeople");
 
-        lv.setAdapter(new customAdaper(this, getListOfObjectFromQuery(nearbyPeople), getListOfObjectFromQuery(nearbyPeople)));
 
     }
 
-    private ArrayList<String> getListOfObjectFromQuery(ArrayList<Measurement> nearbyPeople){
-        ArrayList<String> objects = new ArrayList<>();
-        for(Measurement human : nearbyPeople){
-            objects.add(human.getUserID());
-        }
-        return objects;
-    }
+
 
 
     @Override
